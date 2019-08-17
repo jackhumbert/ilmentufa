@@ -1,5 +1,7 @@
+@import url(https://jackhumbert.github.io/zbalermorna/test/css/lato-zlm-extended.css);
+
 body, textarea {
-    font-family: sans-serif !important;
+    font-family: sans-serif, "lato-zlm-extended" !important;
 }
 
 span.translation {
@@ -109,6 +111,10 @@ li.implicit {
 .tengwar-highlighting .lojban-error {
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+.zbalermorna-highlighting {
+    font-size: 150%;
 }
 
 /* Boxes */

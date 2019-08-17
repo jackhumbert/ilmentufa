@@ -416,6 +416,9 @@ function showHighlighting(simplified, tokens, $element) {
     } else if ($("#hiragana-button").hasClass('active')) {
         var mode = 4;
         var classString = "hiragana-highlighting";
+    } else if ($("#zbalermorna-button").hasClass('active')) {
+        var mode = 5;
+        var classString = "zbalermorna-highlighting";
     }
     
     output += "<span class=\"highlighting " + classString + "\"><big>";
@@ -555,6 +558,8 @@ function outputWord(word, mode) {
         return wordToTengwar(addDotsToWord(word));
     } else if (mode === 4) { // Hiragana mode
         return wordToHiragana(addDotsToWord(word));
+    } else if (mode === 5) { // Zbalermorna mode
+        return wordToZbalermorna(addDotsToWord(word));
     }
 }
 
@@ -567,6 +572,8 @@ function getSelectedMode() {
         return 3;
     } else if ($("#hiragana-button").hasClass('active')) {
         return 4;
+    } else if ($("#zbalermorna-button").hasClass('active')) {
+        return 5;
     }
 }
 

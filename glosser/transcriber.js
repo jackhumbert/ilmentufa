@@ -283,3 +283,50 @@ hiraganaTable["ki"] = "&#12365;";
 hiraganaTable["ko"] = "&#12371;";
 hiraganaTable["ku"] = "&#12367;";
 hiraganaTable["k"] = "&#12367;";
+
+// Zbalermorna mode
+
+function formatUnicode (point) {
+    return "&#" + point + ";"; 
+  // return String.fromCodePoint(point);
+}
+
+const NEW_UNICODE_START = 0xED80;
+const lerfu_index = "ptkflscmx.' 1234bdgvrzjn!-,~    aeiouy          AEIOUY";
+
+function transcribeToZbalermorna(text) {
+    var result = [];
+    
+    for (var i in text) {
+        result.push(wordToZbalermorna(addDotsToWord(text[i], text[i - 1])));
+    }
+    
+    return result;
+}
+
+function wordToZbalermorna(word) {
+    console.log(word);
+    var zbalermornaWord = "";
+    
+    for (var i = 0; i < word.length; i++) {
+        zbalermornaWord += characterToZbalermorna(word.charAt(i));
+    }
+
+    return zbalermornaWord;
+}
+
+function characterToZbalermorna(c) {
+  if (c == " ")
+    return " ";
+  if (c == "h" || c == "H")
+    c = "'";
+  if (lerfu_index.indexOf(c) >= 0)
+    return formatUnicode(NEW_UNICODE_START + lerfu_index.indexOf(c));
+  else if (lerfu_index.indexOf(c.toLowerCase()) >= 0)
+    return formatUnicode(NEW_UNICODE_START + lerfu_index.indexOf(c.toLowerCase()));
+  if (c == "\n")
+    return "\n";
+  if (c == "\t")
+    return "\t";
+  return "";
+}

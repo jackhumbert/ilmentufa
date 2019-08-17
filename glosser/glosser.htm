@@ -25,7 +25,7 @@
      <form onsubmit="parse(); return false;">
       <fieldset>
        <!--legend>Type any Lojban text in the following textarea and press "Parse".</legend-->
-       <textarea id="lojban-text-area" rows="5" placeholder='Type any Lojban text in the following textarea and press "Parse".' style="width: 100%;"></textarea>
+       <textarea id="lojban-text-area" rows="5" placeholder='Type any Lojban text in the following textarea and press "Parse".' style="width: 100%;" onkeyup="parse();"></textarea>
        <button class="btn btn-primary" onclick="parse(); return false;"><i class="icon-search icon-white"></i> Parse</button>
        <a href="glosser.htm#output-options-modal" class="btn" data-toggle="modal"><i class="icon-wrench"></i> Output options</a>
         <div id="output-options-modal" class="modal hide fade" tabindex="-1" role="dialog">
@@ -43,6 +43,7 @@
            <a class="btn highlight-button" id="cyrillic-button" onclick="$(&#39;.highlight-button&#39;).removeClass(&#39;active&#39;); $(&#39;#cyrillic-button&#39;).addClass(&#39;active&#39;);">Cyrillic</a>
            <a class="btn highlight-button" id="tengwar-button" onclick="$(&#39;.highlight-button&#39;).removeClass(&#39;active&#39;); $(&#39;#tengwar-button&#39;).addClass(&#39;active&#39;);">Tengwar</a>
            <a class="btn highlight-button" id="hiragana-button" onclick="$(&#39;.highlight-button&#39;).removeClass(&#39;active&#39;); $(&#39;#hiragana-button&#39;).addClass(&#39;active&#39;);">Hiragana</a>
+           <a class="btn highlight-button" id="zbalermorna-button" onclick="$(&#39;.highlight-button&#39;).removeClass(&#39;active&#39;); $(&#39;#zbalermorna-button&#39;).addClass(&#39;active&#39;);">Zbalermorna</a>
           </div>
          </div>
          <legend>Periods</legend>
